@@ -164,3 +164,57 @@
 <p>Открытый ключ: (91,5)(91,5)
 Закрытый ключ: (91,29)(91,29)
   n = 123456789012345678901234567890... (всего 700 цифр)</p>
+    <!-- Падающие помады 💄 — без изменений основного контента -->
+<div id="lipstick-rain" style="pointer-events: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; overflow: hidden;"></div>
+<script>
+  (function() {
+    const container = document.getElementById('lipstick-rain');
+    const emoji = '💄';
+    const spawnRate = 400; // новая помада каждые 400 мс
+    const minDuration = 5;
+    const maxDuration = 10;
+    const minSize = 18;
+    const maxSize = 32;
+
+    function createLipstick() {
+      const el = document.createElement('div');
+      el.textContent = emoji;
+      el.style.position = 'absolute';
+      el.style.top = '-50px';
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.fontSize = (minSize + Math.random() * (maxSize - minSize)) + 'px';
+      el.style.opacity = '0.85';
+      el.style.zIndex = '9999';
+      el.style.pointerEvents = 'none';
+      el.style.userSelect = 'none';
+
+      const duration = minDuration + Math.random() * (maxDuration - minDuration);
+      el.style.animation = `fall-${Date.now()} ${duration}s linear forwards`;
+
+      // Динамически создаём уникальную анимацию (чтобы избежать конфликтов)
+      const style = document.createElement('style');
+      style.innerHTML = `
+        @keyframes fall-${Date.now()} {
+          to { transform: translateY(105vh) rotate(${360 * (0.5 + Math.random())}deg); }
+        }
+      `;
+      document.head.appendChild(style);
+
+      container.appendChild(el);
+
+      // Удаляем элемент и стиль через duration секунд
+      setTimeout(() => {
+        if (el.parentNode) el.parentNode.removeChild(el);
+        if (style.parentNode) style.parentNode.removeChild(style);
+      }, duration * 1000);
+    }
+
+    // Запуск "дождя"
+    setInterval(createLipstick, spawnRate);
+
+    // Добавим первые помады сразу
+    for (let i = 0; i < 6; i++) {
+      setTimeout(createLipstick, i * 300);
+    }
+  })();
+</script>
