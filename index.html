@@ -218,3 +218,28 @@
     }
   })();
 </script>
+<!-- Рождественское поздравление — без изменений основного сайта -->
+<div style="
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: #d81b60;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 1rem 1.5rem;
+  border-radius: 18px;
+  border: 2px solid #ff80ab;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  pointer-events: none; /* не мешает кликам под ним */
+  user-select: none;    /* нельзя выделить */
+">
+  Поздравляю с наступающим Рождеством 2026!
+</div>
+
+<!-- Подключение бесплатного шрифта (выполняется один раз) -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
