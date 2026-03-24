@@ -60,3 +60,486 @@ Bullmastiff: 0,98%</p>
 <p>ответ машины=0.69
   ответ машины=0.95
 </p>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>💖 Barbie World ✨</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* 🎀 Barbie Variables */
+    :root {
+      --pink-light: #ffb6d9;
+      --pink-main: #ff69b4;
+      --pink-dark: #c71585;
+      --gold: #ffd700;
+      --white: #fff0f5;
+      --sparkle: rgba(255, 105, 180, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, var(--pink-light), var(--pink-main), var(--pink-dark));
+      color: #333;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ✨ Sparkle Animation Background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: 
+        radial-gradient(var(--sparkle) 1px, transparent 1px),
+        radial-gradient(var(--sparkle) 1px, transparent 1px);
+      background-size: 50px 50px;
+      background-position: 0 0, 25px 25px;
+      animation: sparkleMove 20s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    @keyframes sparkleMove {
+      0% { background-position: 0 0, 25px 25px; }
+      100% { background-position: 100px 100px, 125px 125px; }
+    }
+
+    /* 💄 Falling Lipsticks Animation */
+    .lipstick {
+      position: fixed;
+      top: -50px;
+      font-size: 1.8rem;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.9;
+      animation: fallLipstick linear forwards;
+      filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.5));
+      will-change: transform;
+    }
+
+    @keyframes fallLipstick {
+      0% {
+        transform: translateY(-50px) rotate(0deg) translateX(0);
+        opacity: 0.9;
+      }
+      25% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        transform: 
+          translateY(110vh) 
+          rotate(var(--rotation)) 
+          translateX(var(--drift));
+        opacity: 0.7;
+      }
+    }
+
+    /* 🌈 Glitter Text Effect */
+    .glitter-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.5rem;
+      color: var(--gold);
+      text-shadow: 
+        0 0 10px var(--gold),
+        0 0 20px var(--pink-main),
+        0 0 30px var(--pink-dark);
+      animation: glow 2s ease-in-out infinite alternate;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px var(--gold), 0 0 20px var(--pink-main); }
+      to { text-shadow: 0 0 20px var(--gold), 0 0 40px var(--pink-dark), 0 0 60px var(--gold); }
+    }
+
+    /* 🎀 Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 💕 Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: rgba(255, 240, 245, 0.9);
+      border-radius: 30px;
+      margin: 2rem 0;
+      box-shadow: 
+        0 10px 30px rgba(199, 21, 133, 0.3),
+        inset 0 0 20px rgba(255, 105, 180, 0.1);
+      border: 3px dashed var(--pink-main);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin: 1rem 0;
+      color: var(--pink-dark);
+      line-height: 1.6;
+    }
+
+    /* 🎀 Navigation */
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 5px 20px rgba(199, 21, 133, 0.2);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--pink-dark);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, var(--pink-light), transparent);
+      transition: left 0.5s;
+      z-index: -1;
+    }
+
+    nav a:hover::before {
+      left: 100%;
+    }
+
+    nav a:hover {
+      color: white;
+      background: var(--pink-main);
+      transform: scale(1.05);
+    }
+
+    /* 🎁 Cards Section */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(199, 21, 133, 0.2);
+      border: 2px solid var(--pink-light);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "💖";
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      font-size: 4rem;
+      opacity: 0.1;
+      transform: rotate(15deg);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(199, 21, 133, 0.4);
+      border-color: var(--pink-main);
+    }
+
+    .card:hover::before {
+      transform: rotate(0) scale(1.2);
+      opacity: 0.2;
+    }
+
+    .card h3 {
+      color: var(--pink-dark);
+      margin: 1rem 0;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* 🎀 Button Style */
+    .btn-barbie {
+      background: linear-gradient(45deg, var(--pink-main), var(--pink-dark));
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 1rem 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(199, 21, 133, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-barbie::after {
+      content: "✨";
+      margin-left: 8px;
+      animation: twinkle 1s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(0.9); }
+    }
+
+    .btn-barbie:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(199, 21, 133, 0.6);
+      background: linear-gradient(45deg, var(--pink-dark), var(--pink-main));
+    }
+
+    .btn-barbie:active {
+      transform: translateY(1px);
+    }
+
+    /* 🌈 Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      color: white;
+      font-weight: 600;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* 🎀 Responsive */
+    @media (max-width: 768px) {
+      .glitter-text {
+        font-size: 2.5rem;
+      }
+      nav {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .hero {
+        padding: 2rem 1rem;
+      }
+    }
+
+    /* 💫 Floating Hearts Animation */
+    .heart {
+      position: fixed;
+      font-size: 1.5rem;
+      animation: fall linear forwards;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 💄 Falling Lipsticks Script - БЕСКОНЕЧНЫЙ ПОТОК -->
+  <script>
+    // 💄 Функция создания падающей помады
+    function createLipstick() {
+      const lipstick = document.createElement('div');
+      lipstick.className = 'lipstick';
+      
+      // Случайный выбор эмодзи
+      const lipsticks = ['💄', '💋', '✨💄', '💄✨'];
+      lipstick.innerHTML = lipsticks[Math.floor(Math.random() * lipsticks.length)];
+      
+      // Случайная позиция по горизонтали (с отступом от краёв)
+      const startX = Math.random() * 90 + 5; // 5% - 95% ширины экрана
+      lipstick.style.left = startX + 'vw';
+      
+      // Случайные параметры анимации через CSS-переменные
+      const duration = Math.random() * 4 + 5; // 5-9 секунд падения
+      const rotation = (Math.random() - 0.5) * 720; // поворот от -360 до +360 градусов
+      const drift = (Math.random() - 0.5) * 100; // горизонтальное смещение от -50 до +50px
+      const size = Math.random() * 1 + 1.2; // размер от 1.2rem до 2.2rem
+      
+      lipstick.style.setProperty('--rotation', rotation + 'deg');
+      lipstick.style.setProperty('--drift', drift + 'px');
+      lipstick.style.animationDuration = duration + 's';
+      lipstick.style.fontSize = size + 'rem';
+      
+      // Добавляем на страницу
+      document.body.appendChild(lipstick);
+      
+      // Удаляем после завершения анимации (чтобы не засорять DOM)
+      setTimeout(() => {
+        lipstick.remove();
+      }, duration * 1000);
+    }
+
+    // 🔄 Запускаем бесконечное создание помад
+    // Новая помада появляется каждые 300-600мс для плотного, но не перегруженного эффекта
+    function startLipstickRain() {
+      createLipstick(); // первая сразу
+      setInterval(createLipstick, Math.random() * 300 + 300);
+    }
+
+    // Запускаем после загрузки страницы
+    window.addEventListener('load', startLipstickRain);
+  </script>
+
+  <!-- ✨ Floating Hearts Script (оставляем для двойного волшебства!) -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = ['💖', '💕', '💗', '💓', '💝'][Math.floor(Math.random() * 5)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+      heart.style.fontSize = (Math.random() * 1 + 1) + 'rem';
+      document.body.appendChild(heart);
+      
+      setTimeout(() => heart.remove(), 7000);
+    }
+    
+    setInterval(createHeart, 1200); // чуть реже, чтобы не перегружать вместе с помадами
+  </script>
+
+  <div class="container">
+    <!-- 🎀 Header -->
+    <h1 class="glitter-text">✨ Добро пожаловать в мир Барби! ✨</h1>
+    
+    <!-- 🧭 Navigation -->
+    <nav>
+      <a href="#home">🏠 Главная</a>
+      <a href="#about">💕 О нас</a>
+      <a href="#gallery">📸 Галерея</a>
+      <a href="#contact">📬 Контакты</a>
+    </nav>
+
+    <!-- 💖 Hero Section -->
+    <section class="hero" id="home">
+      <h2>🌸 Жизнь в розовых тонах 🌸</h2>
+      <p>Здесь всё наполнено магией, стилем и бесконечными возможностями! <br>
+         Будь собой, мечтай ярко и сияй, как настоящая Барби! ✨</p>
+      <button class="btn-barbie" onclick="alert('💖 Привет, красотка! Ты потрясающая! ✨')">Нажми меня!</button>
+    </section>
+
+    <!-- 🎁 Cards Section -->
+    <section class="cards">
+      <div class="card">
+        <div style="font-size: 3rem;">👗</div>
+        <h3>Мода & Стиль</h3>
+        <p>Открой для себя последние тренды и создай свой уникальный образ в стиле Барби!</p>
+      </div>
+      <div class="card">
+        <div style="font-size: 3rem;">🎀</div>
+        <h3>Вдохновение</h3>
+        <p>Ежедневная доза мотивации, чтобы верить в себя и идти к своим мечтам!</p>
+      </div>
+      <div class="card">
+        <div style="font-size: 3rem;">🌈</div>
+        <h3>Приключения</h3>
+        <p>Каждый день — новое приключение! Путешествуй, твори и наслаждайся жизнью!</p>
+      </div>
+    </section>
+
+    <!-- 📬 Contact Section -->
+    <section class="hero" id="contact" style="background: linear-gradient(135deg, #fff0f5, #ffe4e1);">
+      <h2>📬 Свяжись со мной</h2>
+      <p>Есть идеи или просто хочешь поболтать? Напиши мне! 💬</p>
+      <form onsubmit="event.preventDefault(); alert('✨ Спасибо! Твоё сообщение отправлено с любовью! 💖');" style="margin-top: 1rem;">
+        <input type="text" placeholder="Твоё имя 💕" required 
+               style="width: 100%; max-width: 400px; padding: 0.8rem; margin: 0.5rem 0; border: 2px solid var(--pink-light); border-radius: 25px; font-family: inherit;">
+        <br>
+        <textarea placeholder="Твоё сообщение ✨" rows="4" required 
+                  style="width: 100%; max-width: 400px; padding: 0.8rem; margin: 0.5rem 0; border: 2px solid var(--pink-light); border-radius: 20px; font-family: inherit;"></textarea>
+        <br>
+        <button type="submit" class="btn-barbie">Отправить 💌</button>
+      </form>
+    </section>
+
+    <!-- 🌈 Footer -->
+    <footer>
+      <p>Создано с 💖 и блёстками | © 2026 Barbie Style</p>
+      <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+        <a href="#">Политика конфиденциальности</a> • 
+        <a href="#">Условия использования</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- ✨ Extra Sparkle on Click -->
+  <script>
+    document.addEventListener('click', (e) => {
+      if(e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+        const sparkle = document.createElement('span');
+        sparkle.innerHTML = '✨';
+        sparkle.style.cssText = `
+          position: fixed;
+          left: ${e.pageX}px;
+          top: ${e.pageY}px;
+          font-size: 1.5rem;
+          pointer-events: none;
+          animation: fall 1s ease-out forwards;
+          z-index: 1000;
+        `;
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 1000);
+      }
+    });
+  </script>
+
+</body>
+</html>
